@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Confident Captcha</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+	<main class="captcha-card">
+		<h1>Confident Captcha</h1>
+
+		<section id="captcha-panel">
+			<p id="prompt" class="prompt">Loading challenge&hellip;</p>
+			<div class="image-wrap">
+				<img id="captcha-image" alt="Captcha challenge: overlapping shapes to select from">
+			</div>
+			<p id="feedback" class="feedback" role="status"></p>
+		</section>
+
+		<section id="success-panel" class="hidden">
+			<p class="success-message">&#9989; Verification Successful</p>
+			<!-- TODO: replace href with the secure destination URL -->
+			<a id="success-link" class="success-link" href="#">Continue</a>
+		</section>
+	</main>
+
+	<script src="{{ url_for('static', filename='captcha.js') }}"></script>
+</body>
+</html>
