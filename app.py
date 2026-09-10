@@ -68,4 +68,8 @@ def api_verify():
 
 
 if __name__ == "__main__":
-	app.run(debug=True)
+	# Debug mode is intentionally off by default (it exposes the interactive
+	# debugger/arbitrary code execution). Set FLASK_DEBUG=1 locally if needed.
+	import os
+
+	app.run(debug=os.environ.get("FLASK_DEBUG") == "1")

@@ -32,6 +32,9 @@ pip install -r requirements.txt
 python3 app.py
 ```
 
+Debug mode is off by default; set `FLASK_DEBUG=1` before running if you want
+the interactive debugger/auto-reload while developing.
+
 Then open <http://127.0.0.1:5000> in a browser. Click the shape named in
 the prompt; a correct click shows a "Verification Successful" message
 with a link (update the placeholder `href` in `templates/index.html`
