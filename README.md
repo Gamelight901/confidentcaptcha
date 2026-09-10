@@ -1,17 +1,14 @@
 # Confident Captcha
 
-A simple, self-hosted CAPTCHA demo built for a class project. Instead of
-distorted text, the user is shown a set of semi-transparent, overlapping
-shapes and asked to click a specific one, e.g. **"Click the 'Orange
-Circle'"**. Every challenge is randomly generated (shapes, colors,
-positions, and depth order), and the server checks answers against a
-per-pixel "hit mask" of the actual rendered image, so the correct answer
-always matches what's visually on top.
+> [!IMPORTANT]
+> This is not an official project designed for public use. It's a school project, and should not be used outside of it's intended purpose as simply a project. Do not use for commerical/personal use, as it will be discontinued and delisted in the coming future.
 
-This is a school assignment demo, not a production security tool: it
-intentionally uses a small, single Flask process with an in-memory,
-single-use challenge store (no database, no session persistence, no
-rate limiting). Restarting the server clears all outstanding challenges.
+A simple, self-hosted CAPTCHA. Instead of distorted text, the user is shown a set of semi-transparent, overlapping shapes and asked to click a specific one, e.g. **"Click the 'Orange Circle'"**. Every challenge is randomly generated (shapes, colors,positions, and depth order), and the server checks answers against a per-pixel "hit mask" of the actual rendered image, so the correct answer always matches what's visually on top.
+
+## Accessiblity
+
+> [!NOTE]
+> This prototype does not cover accessibility options by design, sorry, however this is out of our control due to an implementation issue.
 
 ## Requirements
 
@@ -32,14 +29,9 @@ pip install -r requirements.txt
 python3 app.py
 ```
 
-Debug mode is off by default; set `FLASK_DEBUG=1` before running if you want
-the interactive debugger/auto-reload while developing.
+Debug mode is off by default; set `FLASK_DEBUG` to `=1` before running if you wantthe interactive debugger/auto-reload while developing.
 
-Then open <http://127.0.0.1:5000> in a browser. Click the shape named in
-the prompt; a correct click shows a "Verification Successful" message
-with a link (update the placeholder `href` in `templates/index.html`
-with your own destination before presenting). An incorrect click loads
-a brand-new challenge automatically.
+Then open <http://127.0.0.1:5000> in a browser. Click the shape named in the prompt; a correct click shows a "Verification Successful" message with a link. An incorrect click will cause the program to generate a new prompt.
 
 Alternatively, using Flask's CLI:
 
@@ -67,11 +59,3 @@ templates/         # HTML page
 static/            # CSS + client-side JS
 tests/             # pytest unit tests
 ```
-
-## Known limitations (by design)
-
-This prototype does not address accessibility concerns such as
-colorblindness or screen-reader support, and only offers a single,
-simple identification question style rather than more complex spatial
-reasoning questions. These trade-offs are intentional scope decisions
-for this assignment and are discussed further in the project report.
